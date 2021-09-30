@@ -1,0 +1,34 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+nav {
+	height: 50px;
+	background: #707799;
+}
+nav h1 {
+	position: absolute;
+	width: 200px;
+	top: 8px;
+	left: 5%;
+	color: #fff;
+	text-transform: uppercase;
+}
+nav ul {
+	float: right;
+	margin-right: 25px;
+	list-style: none;
+}
+nav ul li {
+	display: inline-block;
+	line-height: 50px;
+	margin: 0 15px;
+	cursor: pointer;
+}
+nav ul li a {
+	position: relative;
+	padding: 5px 0;
+	color: #fff;
+	font-size: 18px;
+	text-decoration: none;
+}

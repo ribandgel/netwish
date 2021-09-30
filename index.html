@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JustStreamIt</title>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+    <nav>
+        <h1>
+            JustStreamIt
+        </h1>
+        <ul>
+            <li><a id="ac-menu">Accueil</a></li>
+            <li><a id="cat-menu">Catégorie</a></li>
+        </ul>
+    </nav>
+    <div id="categories">
+    </div>
+<script>
+    var loading = false
+    async function getAllGenres() {
+        loading = true
+        var finish = false
+        var genres = []
+        var url = "http://localhost:8000/api/v1/genres/?page=1"
+        while (!finish) {
+            const response = await fetch(url).then(response => response.json())
+            for (var genre in response["results"]) {
+                genres.push(response["results"][genre])
+            }
+            if (response["next"]) {
+                url = response["next"]
+            } else {
+                finish = true
+            }
+        }
+        loading = false
+        return genres
+    }
+
+    async function renderGenres() {
+        json = await getAllGenres()
+        const categories = document.querySelector('#categories')
+        json.forEach(genre => {
+            const categorie = document.createElement('div')
+            categorie.innerHTML = `<div id=${genre.name}>${genre.name}</div>`
+            categories.appendChild(categorie)
+        })
+    }
+
+    function hideAll() {
+        const categories = document.querySelector('#categories')
+        categories.innerHTML = ""
+    }
+
+    document.getElementById("cat-menu").addEventListener('click', function() {
+      hideAll()
+      renderGenres()
+    })
+    document.getElementById("ac-menu").addEventListener('click', function() {
+      hideAll()
+    })
+</script>
+</body>
+</html>
