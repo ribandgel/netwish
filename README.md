@@ -5,5 +5,6 @@
  
   ```
   - git clone git@github.com:ribandgel/netwish.git
-  -  Open index.html file in your favorite browser
-  ```
+ ```
+  - [You need to install and run the backend server](https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR)
+  - Open index.html file in your favorite browser
