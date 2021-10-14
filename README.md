@@ -4,7 +4,11 @@
 ## Install:
  
   ```
-  - git clone git@github.com:ribandgel/netwish.git
+  git clone git@github.com:ribandgel/netwish.git
  ```
   - [You need to install and run the backend server](https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR)
-  - Open index.html file in your favorite browser
+ 
+## Run:
+ ```
+ python -m http.server 8000
+ ```
